@@ -1,20 +1,19 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class Login extends Component {
   constructor() {
     super();
     this.state = {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
       errors: {}
     };
+
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
-  onSubmit = e => {
+  onSubmit(e) {
     e.preventDefault();
 
     const user = {
@@ -23,7 +22,11 @@ class Login extends Component {
     };
 
     console.log(user);
-  };
+  }
+
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
 
   render() {
     return (
